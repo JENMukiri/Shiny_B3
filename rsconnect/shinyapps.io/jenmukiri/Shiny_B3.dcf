@@ -1,0 +1,13 @@
+name: Shiny_B3
+title: Shiny_B3
+username:
+account: jenmukiri
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 5248816
+bundleId: 5317256
+url: https://jenmukiri.shinyapps.io/Shiny_B3/
+when: 1638412640.51049
+lastSyncTime: 1638412640.5105
+asMultiple: FALSE
+asStatic: FALSE

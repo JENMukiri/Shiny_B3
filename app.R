@@ -7,14 +7,21 @@ options(shiny.autoreload = TRUE)
 #max_price <- max(bcl$Price, na.rm = TRUE)
 
 
-ui <- fluidPage( theme = shinytheme("cosmo"),
+#in the UI I added a logo from the internet https://en.wikipedia.org/wiki/File:BC_Liquor_Store_logo.svg changing the format from svg to png
+# I also changed the theme of the shiny app to united from https://rstudio.github.io/shinythemes/
+# I adjusted the layout for the app to have panels for viewing the plot, table and downloading data in csv format
+# I also included the table to be interactive
+# In summary all these additions help the user when interacting with the app, the can view the table and plots different, the can download data from which they selected specific beverage
+ui <- fluidPage( theme = shinytheme("united"),
+                 img(src='myImage.png', height="25%", width="25%",align = "right"),
     titlePanel("BCL app"),
     "This app allows you to explore the bc liqour database and the types of alcoholic and non-alcholic drinks they sell,
-      the alcholo content, price and countries or origin.",
+      the alchol content, price and countries or origin.",
   tags$br(),
   tags$br(),
   
-  titlePanel("Tabsets"), 
+  titlePanel("App selections"), 
+  
   
   sidebarLayout(
       sidebarPanel(
@@ -28,7 +35,7 @@ ui <- fluidPage( theme = shinytheme("cosmo"),
           
       ),
       mainPanel(
-        img(src='myImage.png', align = "right"),
+        
         tabsetPanel(
           tabPanel("Plot", uiOutput("my_random")),
           tabPanel("Table", DTOutput("my_table")),
@@ -38,6 +45,8 @@ ui <- fluidPage( theme = shinytheme("cosmo"),
   )
 )
 
+#in the server i changed the table to be interactive this was possible with the DT package making the app interactive
+# I also included the download function which allows the user to create a csv based on the beverage type they have selected
 
 server <- function(input, output, session) {
     

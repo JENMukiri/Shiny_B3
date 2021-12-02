@@ -1,5 +1,6 @@
 library(shiny)
 library(tidyverse)
+library(shinythemes)
 bcl <- read_csv("bcl-data.csv")
 options(shiny.autoreload = TRUE)
 #max_price <- max(bcl$Price, na.rm = TRUE)
@@ -13,6 +14,9 @@ ui <- fluidPage(
   two price points.",
   tags$br(),
   tags$br(),
+  
+  titlePanel("Tabsets"), 
+  
   sidebarLayout(
       sidebarPanel(
           sliderInput("my_slider", "Select a price range", 
@@ -23,14 +27,18 @@ ui <- fluidPage(
           )
       ),
       mainPanel(
-          uiOutput("my_random"),
-          tableOutput("my_table")
+        img(src='myImage.png', align = "right"),
+        tabsetPanel(
+          tabPanel("Plot", uiOutput("my_random")),
+          tabPanel("Table", tableOutput("my_table")),
+          tabPanel("Download Data",  downloadButton("downloadData"))
+         )
       )
   )
 )
 
 
-server <- function(input, output) {
+server <- function(input, output, session) {
     
     output$my_random <- renderUI({
         if (input$my_radio == "WINE") {
@@ -56,6 +64,17 @@ server <- function(input, output) {
     output$my_table <- renderTable(
         filtered()
     )
+    
+#Downloadable csv of selected dataset ----
+      output$downloadData <- downloadHandler(
+        filename = function() {
+          paste("data.csv")
+        },
+        content = function(file) {
+          write.csv(filtered(), file)
+        }
+      )
+  
 }
 
 

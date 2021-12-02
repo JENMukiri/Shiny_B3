@@ -27,7 +27,15 @@ This built on the already existing BC liquor app included task:
  **[BC liqour App](https://jenmukiri.shinyapps.io/Shiny_B3/)**
  
 ## App description
-This app allows you to access the BC liqour app database and download data into a csv.
+This app allows you to access the BC liquor app database and download data into a csv. The app is different from the original.Key distinctions are:
+ 1. Tab layout for viewing the graph and tables and addition of logo
+ 2. Option to download data based on options selected 
+ 3. Visualizing the histogram based on sub-type of beverage
+ 4. Being able to reset the app
+ 
+ Based on these changes this app is user friendly compared to the original version.
+ 
+ **Data** : For this assignment data was sourced from here: [BC Liquor data](https://deanattali.com/files/bcl-data.csv) that was sourced from [Opendata_bc](https://www.opendatabc.ca/dataset/bc-liquor-store-product-price-list-current-prices)
   
 ## Project Folder/Files
 

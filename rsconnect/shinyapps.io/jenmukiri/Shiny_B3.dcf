@@ -5,9 +5,9 @@ account: jenmukiri
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 5248816
-bundleId: 5317490
+bundleId: 5317596
 url: https://jenmukiri.shinyapps.io/Shiny_B3/
-when: 1638417907.62649
-lastSyncTime: 1638417907.6265
+when: 1638421136.78104
+lastSyncTime: 1638421136.78105
 asMultiple: FALSE
 asStatic: FALSE
